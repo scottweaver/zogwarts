@@ -1,0 +1,21 @@
+CREATE SCHEMA IF NOT EXISTS zogwarts 
+
+  CREATE TABLE wizard (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  age INTEGER NOT NULL,
+  spellbook_pk INTEGER NOT NULL REFERENCES spellbook(id)
+  )
+  )
+
+
+  CREATE TABLE spellbook (
+  id SERIAL PRIMARY KEY
+  )
+  
+  CREATE TABLE spell (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  level INTEGER NOT NULL,  
+  description VARCHAR(255) NOT NULL
+  );
