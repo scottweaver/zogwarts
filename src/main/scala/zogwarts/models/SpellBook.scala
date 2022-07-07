@@ -1,4 +1,4 @@
-package zogwarts
+package zogwarts.models
 
 import zio.Chunk
 
