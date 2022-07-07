@@ -38,11 +38,16 @@ lazy val stdOpts3 = Seq(
   "UTF-8",
   "-source:3.0-migration"
 )
+// Prevent slf4j 2.x from ruining EVERYTHING :(
+dependencyOverrides ++= Seq(
+  "org.slf4j" % "slf4j-api" % V.slf4jVersion
+)
 
 libraryDependencies ++= Seq(
   "dev.zio"               %% "zio"                               % V.zioVersion,
   "dev.zio"               %% "zio-test"                          % V.zioVersion,
   "io.getquill"           %% "quill-jdbc-zio"                    % "4.0.0",
+  "ch.qos.logback"         % "logback-classic"                   % V.logbackVersion              % Test,
   "io.github.scottweaver" %% "zio-2-0-testcontainers-postgresql" % V.testcontainersForZioVersion % Test,
   "io.github.scottweaver" %% "zio-2-0-db-migration-aspect"       % V.testcontainersForZioVersion % Test,
   "dev.zio"               %% "zio-test-sbt"                      % V.zioVersion                  % Test
