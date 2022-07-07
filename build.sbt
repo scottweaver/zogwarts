@@ -22,6 +22,8 @@ ThisBuild / developers    := List(
 
 ThisBuild / scalacOptions := stdOpts3
 ThisBuild / scalaVersion  := "3.1.3"
+ThisBuild / testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework")
+Test / fork               := true
 
 lazy val stdOpts3 = Seq(
   "-Xfatal-warnings",
@@ -42,6 +44,7 @@ libraryDependencies ++= Seq(
   "dev.zio"               %% "zio-test"                          % V.zioVersion,
   "io.getquill"           %% "quill-jdbc-zio"                    % "4.0.0",
   "io.github.scottweaver" %% "zio-2-0-testcontainers-postgresql" % V.testcontainersForZioVersion % Test,
-  "io.github.scottweaver" %% "zio-2-0-db-migration-aspect"       % V.testcontainersForZioVersion % Test
+  "io.github.scottweaver" %% "zio-2-0-db-migration-aspect"       % V.testcontainersForZioVersion % Test,
+  "dev.zio"               %% "zio-test-sbt"                      % V.zioVersion                  % Test
   // "io.github.scottweaver" %% "zio-2.0-testcontainers-kafka"      % V.testcontainersForZioVersion % Test
 )
