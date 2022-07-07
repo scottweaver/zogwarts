@@ -21,7 +21,7 @@ ThisBuild / developers    := List(
 )
 
 ThisBuild / scalacOptions := stdOpts3
-ThisBuild / scalaVersion  := "3.0.2"
+ThisBuild / scalaVersion  := "3.1.3"
 
 lazy val stdOpts3 = Seq(
   "-Xfatal-warnings",
@@ -36,9 +36,11 @@ lazy val stdOpts3 = Seq(
   "UTF-8",
   "-source:3.0-migration"
 )
+
 libraryDependencies ++= Seq(
   "dev.zio"               %% "zio"                               % V.zioVersion,
   "dev.zio"               %% "zio-test"                          % V.zioVersion,
-  "io.github.scottweaver" %% "zio-2-0-testcontainers-postgresql" % V.testcontainersForZioVersion,
-  "io.github.scottweaver" %% "zio-2.0-testcontainers-kafka"      % V.testcontainersForZioVersion
+  "io.getquill"           %% "quill-jdbc-zio"                    % "4.0.0",
+  "io.github.scottweaver" %% "zio-2-0-testcontainers-postgresql" % V.testcontainersForZioVersion % Test,
+  // "io.github.scottweaver" %% "zio-2.0-testcontainers-kafka"      % V.testcontainersForZioVersion % Test
 )
