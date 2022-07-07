@@ -6,7 +6,7 @@ We build a simple CRUD application and then build integration/functional tests f
 
 - Scala 3 (though all this can be done using Scala 2.x variants of T4Z)
 - ZIO 2.0 (though all this can be done using ZIO 1.x variants of T4Z)
-- Proto-quill for DAO needs.sned ta
+- Proto-quill for DAO needs.
 - PostgreSQL (a MySQl container is also supported by T4Z)
 - Wanted to use Chimney for domain "traversal", but it's not available for Scala 3. :disappointed:
 
