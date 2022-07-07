@@ -1,4 +1,4 @@
-package zio.zymposium.tfz.models
+package zogwarts
 
 import zio.Chunk
 

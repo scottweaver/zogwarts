@@ -1,3 +1,3 @@
-package zio.zymposium.tfz.models
+package zogwarts
 
 final case class Spell(name: String, level: Int, description: String)
