@@ -1,4 +1,4 @@
-package zio.zymposium.tfz
+package zogwarts
 
 import zio.test._
 import io.github.scottweaver.zio.testcontainers.postgres._
