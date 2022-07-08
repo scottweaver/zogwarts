@@ -13,7 +13,6 @@ import zogwarts.dao.ZogwartsPostgresContext
 
 object SpellBooksSpec extends ZIOSpecDefault {
   import ZogwartsPostgresContext._
-
   def spec = suite("SpellBooksSpec")(
     test("simple query") {
 
@@ -25,7 +24,6 @@ object SpellBooksSpec extends ZIOSpecDefault {
         id         <- ZogwartsPostgresContext.run(insert)
         spellBooks <- ZogwartsPostgresContext.run(q)
       } yield assertTrue(
-        spellBooks.size == 1,
         spellBooks.head.name == spellBook.name
       )
     } @@ DbMigrationAspect.migrate()()
