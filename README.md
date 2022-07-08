@@ -1,4 +1,4 @@
-# Zymposium with Containers
+# Zogwarts School of ZIOCraft and Containers!
 
 We build a simple CRUD application and then build integration/functional tests for it using [Testcontainers For Zio](https://github.com/scottweaver/testcontainers-for-zio).
 
