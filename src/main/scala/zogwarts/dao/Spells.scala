@@ -2,13 +2,15 @@ package zogwarts.dao
 
 import io.getquill._
 import zio._
-import zogwarts.models.Spell
+import zogwarts.models.db.Spell
 import javax.sql.DataSource
 
 trait Spells {
   def allSpells: DAOZIO[List[Spell]]
 
   def insertSpell(spell: Spell): DAOZIO[Unit]
+
+  def spellByName(name: String): DAOZIO[Option[Spell]]
 }
 
 object Spells {
@@ -19,6 +21,7 @@ object Spells {
   val allSpells = ZIO.serviceWithZIO[Spells](_.allSpells)
 
   def insertSpell(spell: Spell) = ZIO.serviceWithZIO[Spells](_.insertSpell(spell))
+
 }
 
 final case class SpellsLive(datasource: DataSource) extends Spells {
@@ -35,6 +38,12 @@ final case class SpellsLive(datasource: DataSource) extends Spells {
     val q = quote(spells.insertValue(lift(spell)))
 
     run(q).unit.provide(env)
+  }
+
+  def spellByName(name: String): DAOZIO[Option[Spell]] = {
+
+    val q = quote(spells.filter(_.name == name))
+    run(q).provide(env).map(_.headOption)
   }
 
 }

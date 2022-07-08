@@ -17,7 +17,7 @@ object SchemaValidationSpec extends ZIOSpecDefault {
           val rs1  = stmt.executeQuery("SELECT * FROM wizard")
           val rs2  = stmt.executeQuery("SELECT * FROM spell")
           val rs3  = stmt.executeQuery("SELECT * FROM spell_book")
-          val rs4  = stmt.executeQuery("SELECT * FROM spell_book_cross_reference")
+          val rs4  = stmt.executeQuery("SELECT * FROM scribed_spell")
 
           stmt.close()
         }
