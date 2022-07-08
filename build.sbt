@@ -23,7 +23,7 @@ ThisBuild / developers    := List(
 ThisBuild / scalacOptions := stdOpts3
 ThisBuild / scalaVersion  := "3.1.3"
 ThisBuild / testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework")
-ThisBuild / Test / fork               := true
+ThisBuild / Test / fork   := true
 
 lazy val stdOpts3 = Seq(
   "-Xfatal-warnings",
