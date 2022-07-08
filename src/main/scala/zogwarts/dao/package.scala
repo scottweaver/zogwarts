@@ -8,6 +8,5 @@ package object dao {
   
   object ZogwartsPostgresContext extends PostgresZioJdbcContext(SnakeCase)
 
-  type DAOZIO[A] = ZIO[Any, SQLException, A] 
   
 }

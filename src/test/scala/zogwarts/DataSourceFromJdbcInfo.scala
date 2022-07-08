@@ -6,6 +6,7 @@ import org.postgresql.ds._
 import io.github.scottweaver.models.JdbcInfo
 import io.getquill.context.ZioJdbc.DataSourceLayer
 import io.getquill.JdbcContextConfig
+import org.postgresql.jdbc.AutoSave
 
 object DataSourceFromJdbcInfo {
 
@@ -18,6 +19,7 @@ object DataSourceFromJdbcInfo {
         ds.setURL(jdbcInfo.jdbcUrl)
         ds.setUser(jdbcInfo.username)
         ds.setPassword(jdbcInfo.password)
+        // ds.setAutosave(AutoSave.ALWAYS)
 
         ds
       }
