@@ -36,7 +36,7 @@ lazy val stdOpts3 = Seq(
   "-unchecked",
   "-encoding",
   "UTF-8",
-  "-source:3.0-migration"
+  // "-source:3.0-migration"
 )
 // Prevent slf4j 2.x from ruining EVERYTHING :(
 dependencyOverrides ++= Seq(

@@ -1,17 +1,25 @@
 package zogwarts.dao
 
-import zogwarts.models.db.ScribedSpell
+import zogwarts.models.db._
+import zio._
+import io.getquill._
+import javax.sql.DataSource
+import ZogwartsPostgresContext._
 
-trait ScribedSpells {
+case object ScribedSpells {
 
-  def insertScribedSpell(spell: ScribedSpell): DAOZIO[Unit]
+  val scribedSpells = quote {
+    query[ScribedSpell]
+  }
 
-  def scribedSpellBySpellBookName(spellBookName: String): DAOZIO[List[ScribedSpell]]
+  def insertScribedSpell(spell: ScribedSpell) =
+    val q = quote {
+      query[ScribedSpell].insertValue(lift(spell))
+    }
 
-}
-
-final case class ScribedSpellsLive() {
-
-  
+  def eraseSpellFromSpellBook(spell: Spell, spellBook: SpellBook) =
+    val q = quote {
+      query[ScribedSpell].filter(ss => ss.spellBookId == lift(spellBook.id) && ss.spellId == lift(spell.id)).delete
+    }
 
 }
