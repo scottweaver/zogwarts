@@ -8,7 +8,7 @@
   </appender>
 
 
-  <root level="info">
+  <root level="WARn">
     <appender-ref ref="STDOUT" />
   </root>
 
